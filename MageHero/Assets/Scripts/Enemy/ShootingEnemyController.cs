@@ -51,6 +51,7 @@ public class ShootingEnemyController : EnemyController
                 AI.isStopped = true;
                 return true;
             }
+        Debug.DrawRay(transform.position, direction.normalized * hit.distance, Color.red);
         return false;
 
     }
