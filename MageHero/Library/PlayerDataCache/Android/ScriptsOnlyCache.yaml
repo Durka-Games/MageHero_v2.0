@@ -3,10 +3,14 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - CharacterMove
     - MobileController
+    - PlayerController
     - ShootingEnemyController
     - ShootingEnemyManager
+    - ShootingFlyEnemyManager
     NavMeshComponents.dll:
     - UnityEngine.AI.NavMeshSurface
+    NavMeshComponentsEditor.dll:
+    - UnityEditor.AI.NavMeshAssetManager
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridBrush
     - UnityEditor.Tilemaps.GridPaintPaletteClipboard
@@ -35,7 +39,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
-    - UnityEngine.UI.Text
+    - UnityEngine.UI.Slider
   sceneClasses:
     Assets/Scenes/Levels/Level_1_Mine/Level_1.unity:
     - Class: 1
@@ -73,32 +77,32 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 644}
     - Class: 114
-      Script: {instanceID: 11316}
+      Script: {instanceID: 11204}
     - Class: 114
-      Script: {instanceID: 11318}
+      Script: {instanceID: 11228}
     - Class: 114
-      Script: {instanceID: 11490}
+      Script: {instanceID: 11230}
     - Class: 114
-      Script: {instanceID: 11530}
+      Script: {instanceID: 11448}
     - Class: 114
-      Script: {instanceID: 11944}
+      Script: {instanceID: 11862}
     - Class: 114
-      Script: {instanceID: 12048}
+      Script: {instanceID: 11968}
     - Class: 114
-      Script: {instanceID: 12632}
+      Script: {instanceID: 12284}
     - Class: 114
-      Script: {instanceID: 12812}
+      Script: {instanceID: 12556}
     - Class: 114
-      Script: {instanceID: 12840}
+      Script: {instanceID: 12740}
     - Class: 114
-      Script: {instanceID: 12878}
+      Script: {instanceID: 12768}
     - Class: 114
-      Script: {instanceID: 13260}
+      Script: {instanceID: 12808}
     - Class: 114
-      Script: {instanceID: 13956}
+      Script: {instanceID: 13076}
+    - Class: 114
+      Script: {instanceID: 13196}
     - Class: 115
-      Script: {instanceID: 0}
-    - Class: 128
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -127,6 +131,12 @@ ScriptsOnlyBuild:
     - Class: 1839735485
       Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 7072231382eb3c4871b3dd75ad0227e1
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Slider
   - hash:
       serializedVersion: 2
       Hash: 4bc4346a71a8df53a6b106f68ef3a190
@@ -345,7 +355,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 4f9981bc2dc57bae39df08bcca3031eb
+      Hash: a48d38c3c52f81cc466efb377a2f5795
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShootingEnemyController
@@ -385,6 +395,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: 8348ee96e03468d3619d4b25f9901b94
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerController
   - hash:
       serializedVersion: 2
       Hash: 5f1752ed2092162f016c19510c28a8b9
@@ -477,7 +493,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: a39c778d30d8c6029829b4e5b8d2bdf9
+      Hash: 14b6e9e7bd8a4463e5e1d6ad1f458659
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShootingEnemyManager
@@ -507,6 +523,12 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
+      Hash: 4f9981bc2dc57bae39df08bcca3031eb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShootingFlyEnemyController
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -517,6 +539,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 14b6e9e7bd8a4463e5e1d6ad1f458659
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ShootingFlyEnemyManager
   - hash:
       serializedVersion: 2
       Hash: 8cd1cbba27f3cb1717254f668e9e0d5a
@@ -597,12 +625,6 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 7072231382eb3c4871b3dd75ad0227e1
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Slider
-  - hash:
-      serializedVersion: 2
       Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -616,4 +638,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Levels/Level_1_Mine/Level_1.unity
-  playerPath: D:/Programming/Archero/UnityProject/Builds/0.0.0.5/testApk.apk
+  playerPath: "C:/Users/dns/Downloads/MageHero_v2.0/\u0411\u0438\u043B\u0434\u044B_\u043F\u0440\u0438\u043B\u043E\u0436\u0435\u043D\u0438\u044F/0.0.0.6/testAPK.apk"
