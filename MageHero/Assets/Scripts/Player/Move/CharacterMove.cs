@@ -13,12 +13,15 @@ public class CharacterMove : MonoBehaviour
 
     private CharacterController ch_controller;
 
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
 
         ch_controller = GetComponent<CharacterController>();
         controller = GameObject.FindGameObjectWithTag("Joystic").GetComponent<MobileController>();
+        animator = GetComponent<Animator>();
 
     }
 
