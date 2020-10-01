@@ -9,6 +9,11 @@ using UnityEngine.UI;
 public class ShootingEnemyController : EnemyController
 {
 
+    //
+    [SerializeField] private Canvas HpBar;
+    //
+
+
     protected ShootingEnemyManager manager;
 
     // Start is called before the first frame update
@@ -32,6 +37,10 @@ public class ShootingEnemyController : EnemyController
 
     public override bool raycast(Transform target)
     {
+
+        //
+        HpBar.transform.LookAt(HpBar.transform.position + Camera.main.transform.forward);
+        //
 
         Vector3 direction = target.position - transform.position;
 
