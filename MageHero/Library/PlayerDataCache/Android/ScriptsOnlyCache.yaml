@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - CharacterMove
     - MobileController
     - PlayerController
+    - PlayerMainScript
     - SceneLoading
     - ShootingEnemyController
     - ShootingEnemyManager
@@ -40,6 +41,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Slider
+    - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Levels/Level_1_Mine/Level_1.unity:
     - Class: 1
@@ -89,21 +91,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11858}
     - Class: 114
-      Script: {instanceID: 11964}
+      Script: {instanceID: 11966}
     - Class: 114
-      Script: {instanceID: 12280}
+      Script: {instanceID: 12284}
     - Class: 114
-      Script: {instanceID: 12552}
+      Script: {instanceID: 12556}
     - Class: 114
-      Script: {instanceID: 12736}
+      Script: {instanceID: 12662}
     - Class: 114
-      Script: {instanceID: 12764}
+      Script: {instanceID: 12740}
     - Class: 114
-      Script: {instanceID: 12804}
+      Script: {instanceID: 12768}
     - Class: 114
-      Script: {instanceID: 13072}
+      Script: {instanceID: 12808}
     - Class: 114
-      Script: {instanceID: 13192}
+      Script: {instanceID: 13076}
+    - Class: 114
+      Script: {instanceID: 13196}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 136
@@ -156,16 +160,20 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11222}
     - Class: 114
+      Script: {instanceID: 11402}
+    - Class: 114
       Script: {instanceID: 11442}
     - Class: 114
       Script: {instanceID: 11858}
     - Class: 114
-      Script: {instanceID: 12804}
+      Script: {instanceID: 11914}
     - Class: 114
-      Script: {instanceID: 13192}
+      Script: {instanceID: 12808}
     - Class: 114
-      Script: {instanceID: 14382}
+      Script: {instanceID: 13196}
     - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -408,6 +416,18 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: 9b942fc9e9330e3f9d3668134b15bfbd
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SceneLoading
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Indicators
+  - hash:
+      serializedVersion: 2
       Hash: a48d38c3c52f81cc466efb377a2f5795
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -432,6 +452,12 @@ ScriptsOnlyBuild:
     className: SignalTrack
   - hash:
       serializedVersion: 2
+      Hash: bbbfdf64f3e467c4f149c0881ace3ba6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Controller
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -450,7 +476,7 @@ ScriptsOnlyBuild:
     className: TextContainer
   - hash:
       serializedVersion: 2
-      Hash: 8348ee96e03468d3619d4b25f9901b94
+      Hash: 549950c84a2c41dbb606ec7983cdaf2c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -538,6 +564,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Notifications.iOS.dll
     namespaceName: Unity.Notifications.iOS
     className: iOSNotificationsWrapper
+  - hash:
+      serializedVersion: 2
+      Hash: bbbfdf64f3e467c4f149c0881ace3ba6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerMainScript
   - hash:
       serializedVersion: 2
       Hash: 6939772cb3ce775a8e8d99f332534491
@@ -688,12 +720,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: aa5e1d4176672f9679b70c206e0bb58c
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SceneLoading
   platform: 13
   scenePathNames:
   - Assets/Scenes/New Scene.unity

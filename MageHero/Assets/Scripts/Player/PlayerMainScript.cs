@@ -10,6 +10,7 @@ public class PlayerMainScript : Controller
 
         SetMaxHealth(100);
         Regen(100);
+
         base.Start();
 
     }
@@ -18,7 +19,7 @@ public class PlayerMainScript : Controller
     {
 
         
-        Atack(0.5f);
+        Atack(2 * Time.deltaTime);
 
         base.Update();
 

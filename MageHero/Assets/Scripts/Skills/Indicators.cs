@@ -47,7 +47,7 @@ public class Indicators : MonoBehaviour
     protected float GetDarkDamage() => DarkDamage * DarkDamageMultiple;
     protected float GetElectricDamage() => ElectricDamage * ElectricDamageMultiple;
 
-    protected void Atack(float value) => Health -= value;
+    protected void Atack(float value) => Health -= (value >= Health ? Health : value);
 
     //resistance
     private float PhysicalResist;

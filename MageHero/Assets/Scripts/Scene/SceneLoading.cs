@@ -26,7 +26,7 @@ public class SceneLoading : MonoBehaviour
 
         AsyncOperation load = SceneManager.LoadSceneAsync(sceneID);
 
-        while (@load.isDone)
+        while (!load.isDone)
         {
             loading.value = (float)load.progress / 0.9f;
             loadingText.text = loading.value + "%";
