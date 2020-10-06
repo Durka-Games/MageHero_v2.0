@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Indicators
+public class Indicators : MonoBehaviour
 {
 
     //health
@@ -11,6 +11,7 @@ public class Indicators
     private float BaseMaxHealth;
 
     protected float GetHealth() => Health;
+    protected float GetMaxHealth() => MaxHealth;
     protected void Regen(float value) => Health = (Health + value <= MaxHealth ? Health + value : MaxHealth);
     protected void SetMaxHealth(float value) => MaxHealth += value;
 
@@ -45,6 +46,8 @@ public class Indicators
     protected float GetPoisonDamage() => PoisonDamage * PoisonDamageMultiple;
     protected float GetDarkDamage() => DarkDamage * DarkDamageMultiple;
     protected float GetElectricDamage() => ElectricDamage * ElectricDamageMultiple;
+
+    protected void Atack(float value) => Health -= value;
 
     //resistance
     private float PhysicalResist;

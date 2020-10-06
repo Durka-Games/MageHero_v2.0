@@ -2242,6 +2242,7 @@ GameObject:
   - component: {fileID: 1372746403}
   - component: {fileID: 1372746401}
   - component: {fileID: 1372746402}
+  - component: {fileID: 1372746404}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2308,12 +2309,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372746400}
   m_LocalRotation: {x: 0.53729963, y: 0, z: 0, w: 0.8433915}
-  m_LocalPosition: {x: -1.5, y: 24.22, z: -17.74}
+  m_LocalPosition: {x: -1.5, y: 24.45, z: -17.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
+--- !u!114 &1372746404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1372746400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3232803416544f47a2a49fa3b448c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOnlyZ: 1
+  player: {fileID: 1049993631}
 --- !u!1 &1374951306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,7 +2616,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1249399555}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1535249025
+--- !u!114 &1535249022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2613,7 +2628,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f05a498f5232e544a2b632f8a946f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1535249026}
+--- !u!114 &1535249026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535249021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7d115bc5f63654c9a9e518d42d8571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   HpBar: {fileID: 1954070230}
+  HpSlider: {fileID: 0}
 --- !u!1 &1576911938
 GameObject:
   m_ObjectHideFlags: 0
@@ -5167,6 +5196,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7231916843784787610, guid: db272a7e600887543816544f254e5533,
+        type: 3}
+      propertyPath: m_Value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231916843784787613, guid: db272a7e600887543816544f254e5533,
         type: 3}
