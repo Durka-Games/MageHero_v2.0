@@ -5,28 +5,28 @@ using UnityEngine;
 public class MainSkillScript
 {
     //health
-    private float MaxHealth;
+    protected float MaxHealth;
 
     public float GetMaxHealth() => MaxHealth;
 
     //damage
-    private float PhysicalDamage;
-    private float PhysicalDamageMultiple;
+    protected float PhysicalDamage;
+    protected float PhysicalDamageMultiple;
 
-    private float FireDamage;
-    private float FireDamageMultiple;
+    protected float FireDamage;
+    protected float FireDamageMultiple;
 
-    private float IceDamage;
-    private float IceDamageMultiple;
+    protected float IceDamage;
+    protected float IceDamageMultiple;
 
-    private float PoisonDamage;
-    private float PoisonDamageMultiple;
+    protected float PoisonDamage;
+    protected float PoisonDamageMultiple;
 
-    private float DarkDamage;
-    private float DarkDamageMultiple;
+    protected float DarkDamage;
+    protected float DarkDamageMultiple;
 
-    private float ElectricDamage;
-    private float ElectricDamageMultiple;
+    protected float ElectricDamage;
+    protected float ElectricDamageMultiple;
 
     public float GetPhysicalDamage() => PhysicalDamage;
     public float GetFireDamage() => FireDamage;
@@ -42,13 +42,20 @@ public class MainSkillScript
     public float GetDarkDamageMultiple() => DarkDamageMultiple;
     public float GetElectricDamageMultiple() => ElectricDamageMultiple;
 
+    //atack
+    protected List<float> Angles = new List<float>();
+    public List<float> GetAngles() => Angles;
+
+    protected float AtackSpeed;
+    public float GetAtackSpeed() => AtackSpeed;
+
     //resistance
-    private float PhysicalResist;
-    private float FireResist;
-    private float IceResist;
-    private float PoisonResist;
-    private float DarkResist;
-    private float ElectricResist;
+    protected float PhysicalResist;
+    protected float FireResist;
+    protected float IceResist;
+    protected float PoisonResist;
+    protected float DarkResist;
+    protected float ElectricResist;
 
     public float GetPhysicalResist() => PhysicalResist;
     public float GetFireResist() => FireResist;
@@ -56,5 +63,9 @@ public class MainSkillScript
     public float GetPoisonResist() => PoisonResist;
     public float GetDarkResist() => DarkResist;
     public float GetElectricResist() => ElectricResist;
+
+    //other
+    protected float Speed;
+    public float GetSpeed() => Speed;
 
 }

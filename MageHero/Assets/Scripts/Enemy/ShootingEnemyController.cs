@@ -9,11 +9,6 @@ using UnityEngine.UI;
 public class ShootingEnemyController : EnemyController
 {
 
-    //
-    [SerializeField] private Canvas HpBar;
-    //
-
-
     protected ShootingEnemyManager manager;
 
     // Start is called before the first frame update
@@ -37,48 +32,63 @@ public class ShootingEnemyController : EnemyController
 
     public override bool raycast(Transform target)
     {
+        if (this.gameObject.activeInHierarchy)
+        {
 
-        //
-        HpBar.transform.LookAt(HpBar.transform.position + Camera.main.transform.forward);
-        //
+            Vector3 direction = target.position - transform.position;
 
-        Vector3 direction = target.position - transform.position;
+            direction.y = 0;
 
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, direction, out hit))
-            if (hit.transform.Equals(target))
-            {
-                AI.isStopped = true;
-                return true;
-            }
-        return false;
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, direction, out hit))
+                if (hit.transform.Equals(target))
+                {
+                    AI.isStopped = true;
+                    return true;
+                }
+            return false;
+
+        }
+        else
+        {
+
+
+            manager.removeEnemy(this);
+
+            return true;
+
+        }
 
     }
 
     public override void Move(bool[,] RaycastMap, Tilemap MovableMap)
     {
-
-        Vector3 position = MovableMap.WorldToCell(transform.position);
-
-        float minCost = widht * widht + height * height;
-        int minX = 0;
-        int minY = 0;
-
-        for(int x = 0; x < widht; x++)
+        if (this.gameObject.activeInHierarchy)
         {
 
-            for (int y = 0; y < height; y++)
+            Vector3 position = MovableMap.WorldToCell(transform.position);
+
+            float minCost = widht * widht + height * height;
+            int minX = 0;
+            int minY = 0;
+
+            for (int x = 0; x < widht; x++)
             {
 
-                if(RaycastMap[x, y])
+                for (int y = 0; y < height; y++)
                 {
 
-                    if(Vector3.Distance(position, new Vector3(x + XStartCell, y + YStartCell, 0)) < minCost)
+                    if (RaycastMap[x, y])
                     {
 
-                        minCost = Vector3.Distance(position, new Vector3(x + XStartCell, y + YStartCell, 0));
-                        minX = x;
-                        minY = y;
+                        if (Vector3.Distance(position, new Vector3(x + XStartCell, y + YStartCell, 0)) < minCost)
+                        {
+
+                            minCost = Vector3.Distance(position, new Vector3(x + XStartCell, y + YStartCell, 0));
+                            minX = x;
+                            minY = y;
+
+                        }
 
                     }
 
@@ -86,25 +96,25 @@ public class ShootingEnemyController : EnemyController
 
             }
 
+
+            Vector3Int moveVectorCells = new Vector3Int(minX + XStartCell, minY + YStartCell, 0);
+
+            if (!moveVector.Equals(moveVectorCells))
+            {
+
+                moveVector = MovableMap.CellToWorld(moveVectorCells);
+
+                moveVector = new Vector3(moveVector.x + delX / 2, moveVector.y, moveVector.z + delY / 2);
+
+                AI.ResetPath();
+                AI.SetDestination(moveVector);
+                AI.isStopped = false;
+
+            }
+
+
         }
 
-
-        Vector3Int moveVectorCells = new Vector3Int(minX + XStartCell, minY + YStartCell, 0);
-
-        if (!moveVector.Equals(moveVectorCells))
-        {
-
-            moveVector = MovableMap.CellToWorld(moveVectorCells);
-
-            moveVector = new Vector3(moveVector.x + delX / 2, moveVector.y, moveVector.z + delY / 2);
-
-            AI.ResetPath();
-            AI.SetDestination(moveVector);
-            AI.isStopped = false;
-
-        }
-
-        
     }
 
 }

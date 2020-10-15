@@ -16,6 +16,8 @@ public class Controller : Indicators
         Camera = Camera.main;
         HpSlider = HpBar.GetComponent<Slider>();
 
+        StartCoroutine("Fire");
+
     }
 
     public void Update()
@@ -23,6 +25,24 @@ public class Controller : Indicators
 
         HpSlider.value = GetHealth() / GetMaxHealth();
         HpBar.transform.LookAt(HpBar.transform.position + Camera.transform.forward);
+
+    }
+
+
+    IEnumerator Fire()
+    {
+        while (true)
+        {
+
+            Vector3 pos = transform.position;
+
+            pos.y -= 2f; //1.4
+
+            Instantiate(GetBullet(), pos, Quaternion.identity).GetComponent<BulletMain>().Fire(this, GetBulletSpeed(), transform.forward, EnemyTag);
+
+            yield return new WaitForSeconds(60 / GetAtackSpeed());
+
+        }
 
     }
 

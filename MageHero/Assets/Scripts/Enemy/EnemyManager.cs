@@ -40,8 +40,6 @@ public abstract class EnemyManager : MonoBehaviour
         isMovable = new bool[width, height];
         isRayCast = new bool[width, height];
 
-        Debug.Log(MovableMap.GetTile(new Vector3Int(0, 0, 0)).name);///////////////////////////
-
         for (int x = XStartPos; x < XStartPos + width; x++)
             for (int y = YStartPos; y < YStartPos + height; y++)
                 isMovable[x - XStartPos, y - YStartPos] = Contains(MovableMap.GetTile(new Vector3Int(x, y, 0)));
@@ -91,10 +89,11 @@ public abstract class EnemyManager : MonoBehaviour
 
                     RaycastHit hit;
 
-                    transform.position = new Vector3(x + delWidth / 2, player.position.y, y + delHeight / 2);
-                    Vector3 direction = player.position - transform.position;
+                    transform.position = new Vector3(x + delWidth / 2, PlayerTransform().y, y + delHeight / 2);
+                    Vector3 direction = PlayerTransform() - transform.position;
 
                     if (Physics.Raycast(transform.position, direction, out hit)) isRayCast[CellsX, CellsY] = hit.transform.Equals(player);
+
                 }
                 else isRayCast[CellsX, CellsY] = false;
 
@@ -106,6 +105,17 @@ public abstract class EnemyManager : MonoBehaviour
 
         }
 
+
+    }
+
+    private Vector3 PlayerTransform()
+    {
+
+        Vector3 pos = player.position;
+
+        pos.y += 0.5f;
+
+        return pos;
 
     }
 
@@ -129,6 +139,8 @@ public abstract class EnemyManager : MonoBehaviour
 
         if (enemy.Contains(_enemy))
             enemy.Remove(_enemy);
+
+        if (enemy.Count == 0) Debug.Log("Ты выйграл, пидор!");
 
     }
 }

@@ -49,6 +49,20 @@ public class Indicators : MonoBehaviour
 
     protected void Atack(float value) => Health -= (value >= Health ? Health : value);
 
+    //atack
+    private List<float> Angles = new List<float>();
+    [SerializeField] private GameObject Bullet;
+    private float AtackSpeed;
+    private float BulletSpeed = 20f;
+    protected string EnemyTag;
+
+    protected List<float> GetAngles() => Angles;
+    protected float GetAngle(int value) => (value < Angles.Count ? Angles[value] : 0f);
+    protected int GetAnglesCount() => Angles.Count;
+    protected GameObject GetBullet() => Bullet;
+    protected float GetAtackSpeed() => AtackSpeed;
+    protected float GetBulletSpeed() => BulletSpeed;
+
     //resistance
     private float PhysicalResist;
     private float FireResist;
@@ -65,7 +79,11 @@ public class Indicators : MonoBehaviour
     protected float GetElectricResist() => ElectricResist;
 
     //skills
-    private List<MainSkillScript> Skills;
+    private List<MainSkillScript> Skills = new List<MainSkillScript>();
+
+    //other
+    private float Speed;
+    public float GetSpeed() => Speed;
 
     protected void AddSkill(MainSkillScript _skill)
     {
@@ -88,12 +106,17 @@ public class Indicators : MonoBehaviour
         DarkDamageMultiple = 0f;
         ElectricDamageMultiple = 0f;
 
+        Angles.Clear();
+
         PhysicalResist = 0f;
         FireResist = 0f;
         IceResist = 0f;
         PoisonResist = 0f;
         DarkResist = 0f;
         ElectricResist = 0f;
+
+        Speed = 0f;
+        AtackSpeed = 0f;
 
         for (int i = 0; i < Skills.Count; i++)
         {
@@ -125,8 +148,14 @@ public class Indicators : MonoBehaviour
             MaxHealth += Skills[i].GetMaxHealth();
             Regen(Skills[i].GetMaxHealth());
 
+            if(Skills[i].GetAngles().Count != 0) Angles.AddRange(Skills[i].GetAngles());
+
+            Speed += Skills[i].GetSpeed();
+            AtackSpeed += Skills[i].GetAtackSpeed();
+
         }
 
     }
+
 
 }
