@@ -14,6 +14,7 @@ public class Indicators : MonoBehaviour
     protected float GetMaxHealth() => MaxHealth;
     protected void Regen(float value) => Health = (Health + value <= MaxHealth ? Health + value : MaxHealth);
     protected void SetMaxHealth(float value) => MaxHealth += value;
+    protected void GetDamage(float value) =>  Health -= value;
 
     //damage
     private float BasePhysicalDamage;
@@ -40,12 +41,12 @@ public class Indicators : MonoBehaviour
     private float ElectricDamage;
     private float ElectricDamageMultiple;
 
-    protected float GetPhysicalDamage() => PhysicalDamage * PhysicalDamageMultiple;
-    protected float GetFireDamage() => FireDamage * FireDamageMultiple;
-    protected float GetIceDamage() => IceDamage * IceDamageMultiple;
-    protected float GetPoisonDamage() => PoisonDamage * PoisonDamageMultiple;
-    protected float GetDarkDamage() => DarkDamage * DarkDamageMultiple;
-    protected float GetElectricDamage() => ElectricDamage * ElectricDamageMultiple;
+    public float GetPhysicalDamage() => PhysicalDamage * PhysicalDamageMultiple;
+    public float GetFireDamage() => FireDamage * FireDamageMultiple;
+    public float GetIceDamage() => IceDamage * IceDamageMultiple;
+    public float GetPoisonDamage() => PoisonDamage * PoisonDamageMultiple;
+    public float GetDarkDamage() => DarkDamage * DarkDamageMultiple;
+    public float GetElectricDamage() => ElectricDamage * ElectricDamageMultiple;
 
     protected void Atack(float value) => Health -= (value >= Health ? Health : value);
 
@@ -85,19 +86,19 @@ public class Indicators : MonoBehaviour
     private float Speed;
     public float GetSpeed() => Speed;
 
-    protected void AddSkill(MainSkillScript _skill)
+    public void AddSkill(MainSkillScript _skill)
     {
 
         Skills.Add(_skill);
 
-        MaxHealth = BaseMaxHealth;
+        MaxHealth = 0f;
 
-        PhysicalDamage = BasePhysicalDamage;
-        FireDamage = BaseFireDamage;
-        IceDamage = BaseIceDamage;
-        PoisonDamage = BasePoisonDamage;
-        DarkDamage = BaseDarkDamage;
-        ElectricDamage = BaseElectricDamage;
+        PhysicalDamage = 0f;
+        FireDamage = 0f;
+        IceDamage = 0f;
+        PoisonDamage = 0f;
+        DarkDamage = 0f;
+        ElectricDamage = 0f;
 
         PhysicalDamageMultiple = 0f;
         FireDamageMultiple = 0f;
@@ -155,7 +156,10 @@ public class Indicators : MonoBehaviour
 
         }
 
+        ChangeSomething();
+
     }
 
+    protected virtual void ChangeSomething() { }
 
 }

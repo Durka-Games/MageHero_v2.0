@@ -1,8 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainSkillScript
+public class MainSkillScript : MonoBehaviour
 {
     //health
     protected float MaxHealth;
@@ -67,5 +68,8 @@ public class MainSkillScript
     //other
     protected float Speed;
     public float GetSpeed() => Speed;
+
+
+    protected float DegToRad(float angle) => (float)(angle / (180 / Math.PI));
 
 }

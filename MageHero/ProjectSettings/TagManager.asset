@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Joystic
   - Enemy
+  - Structure
+  - Bullet
   layers:
   - Default
   - TransparentFX

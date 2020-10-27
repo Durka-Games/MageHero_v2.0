@@ -12,7 +12,14 @@ public class Player : MainSkillScript
 
         Speed = 5f;
 
-        AtackSpeed = 30;
+        AtackSpeed = 40;
+
+        PhysicalDamage = 200;
+        PhysicalDamageMultiple = 1f;
+
+        Angles.Add(DegToRad(0));
+        Angles.Add(DegToRad(30));
+        Angles.Add(DegToRad(-30));
 
     }
 

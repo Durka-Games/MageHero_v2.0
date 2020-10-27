@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public abstract class EnemyManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
+
+    [SerializeField] private bool isEnemySpawn;
+    private bool isEnemyAdd = false;
+    public bool isEnemyAtLevel() => isEnemySpawn && isEnemyAdd;
+
     [SerializeField] protected Tilemap MovableMap;
     [SerializeField] protected int XStartPos;
     [SerializeField] protected int YStartPos;
@@ -26,12 +30,14 @@ public abstract class EnemyManager : MonoBehaviour
     [SerializeField] protected float delHeight;
 
     [SerializeField] protected Transform player;
+    public Transform GetPlayer() => player;
 
     protected bool isReady = false;
 
     public bool GetIsReady() { return isReady; }
 
     protected List<EnemyController> enemy = new List<EnemyController>();
+    public EnemyController[] GetEnemies() => enemy.ToArray();
 
     // Start is called before the first frame update
     void Start()
@@ -54,17 +60,30 @@ public abstract class EnemyManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+
+        List<EnemyController> needRaycastMap = new List<EnemyController>();
+
+        for (int i = 0; i < enemy.Count; i++) if (!enemy[i].raycast(player)) needRaycastMap.Add(enemy[i]);
+
+        if (needRaycastMap.Count != 0)
+        {
+
+            FillRayCastMap();
+
+            for (int i = 0; i < needRaycastMap.Count; i++) needRaycastMap[i].Move(isRayCast, MovableMap);
+
+        }
+
+    }
+
     private bool Contains(TileBase tileBase)
     {
 
         bool isMove = false;
 
-        for(int i = 0; i < surface.Length; i++)
-        {
-
-            if (surface[i].Equals(tileBase.name)) isMove = true;
-
-        }
+        for (int i = 0; i < surface.Length; i++) if (surface[i].Equals(tileBase.name)) isMove = true;
 
         return isMove;
 
@@ -122,6 +141,8 @@ public abstract class EnemyManager : MonoBehaviour
     public void addEnemy(EnemyController _enemy, out int XstartCell, out int YStartCell, out float delX, out float delY, out int widht, out int height)
     {
 
+        isEnemyAdd = true;
+
         if (!enemy.Contains(_enemy))
             enemy.Add(_enemy);
 
@@ -140,7 +161,7 @@ public abstract class EnemyManager : MonoBehaviour
         if (enemy.Contains(_enemy))
             enemy.Remove(_enemy);
 
-        if (enemy.Count == 0) Debug.Log("Ты выйграл, пидор!");
 
     }
+
 }

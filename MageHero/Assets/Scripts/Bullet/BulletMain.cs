@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,7 +17,9 @@ public class BulletMain : MonoBehaviour
     public void Fire(Controller _controller, float _speed, Vector3 _moveVector, string _enemyTag)
     {
 
-        MoveVector = _moveVector;
+        transform.Translate(_moveVector);
+
+        MoveVector = _moveVector.normalized;
         Speed = _speed;
         Controller = _controller;
         EnemyTag = _enemyTag;
@@ -25,29 +28,26 @@ public class BulletMain : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
 
-        if (!collision.gameObject.Equals(Controller.gameObject))
+        if (collision.gameObject.tag.Equals("Structure") || collision.gameObject.tag.Equals(Controller.gameObject.tag) || collision.gameObject.tag.Equals(this.gameObject.tag)) return;
+
+        if (collision.gameObject.tag.Equals(EnemyTag))
         {
 
-            if (collision.gameObject.tag.Equals(EnemyTag))
-            {
-
-                collision.gameObject.SetActive(false);
-                               
-            }
-
-            Destroy(this.gameObject);
+            collision.gameObject.GetComponent<Controller>().Hurt(Controller);
 
         }
 
+        Destroy(this.gameObject);
+
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
 
-        if(IsReady) transform.Translate(MoveVector * Speed * Time.deltaTime);
+        if (IsReady) transform.Translate(MoveVector * Speed * Time.deltaTime);
 
     }
 
