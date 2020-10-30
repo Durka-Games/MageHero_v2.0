@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Indicators : MonoBehaviour
@@ -7,7 +8,6 @@ public class Indicators : MonoBehaviour
     //health
     private float Health;
     private float MaxHealth;
-    private float BaseMaxHealth;
 
     protected float GetHealth() => Health;
     protected float GetMaxHealth() => MaxHealth;
@@ -16,27 +16,21 @@ public class Indicators : MonoBehaviour
     protected void GetDamage(float value) =>  Health -= value;
 
     //damage
-    private float BasePhysicalDamage;
     private float PhysicalDamage;
     private float PhysicalDamageMultiple;
 
-    private float BaseFireDamage;
     private float FireDamage;
     private float FireDamageMultiple;
 
-    private float BaseIceDamage;
     private float IceDamage;
     private float IceDamageMultiple;
 
-    private float BasePoisonDamage;
     private float PoisonDamage;
     private float PoisonDamageMultiple;
 
-    private float BaseDarkDamage;
     private float DarkDamage;
     private float DarkDamageMultiple;
 
-    private float BaseElectricDamage;
     private float ElectricDamage;
     private float ElectricDamageMultiple;
 
@@ -56,6 +50,7 @@ public class Indicators : MonoBehaviour
     private float BulletSpeed = 20f;
     protected string EnemyTag;
 
+    protected void AddAngle(float value) => Angles.Add((float)(value / (180 / Math.PI)));
     protected List<float> GetAngles() => Angles;
     protected float GetAngle(int value) => (value < Angles.Count ? Angles[value] : 0f);
     protected int GetAnglesCount() => Angles.Count;

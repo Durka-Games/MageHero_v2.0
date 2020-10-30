@@ -4,6 +4,66 @@ using UnityEngine;
 
 public class MainSkillScript : MonoBehaviour
 {
+
+    public MainSkillScript() 
+    {
+
+        MaxHealth = 0;
+
+        PhysicalDamage = 0;
+        PhysicalDamageMultiple = 0;
+
+        FireDamage = 0;
+        FireDamageMultiple = 0;
+
+        IceDamage = 0;
+        IceDamageMultiple = 0;
+
+        PoisonDamage = 0;
+        PoisonDamageMultiple = 0;
+
+        DarkDamage = 0;
+        DarkDamageMultiple = 0;
+
+        ElectricDamage = 0;
+        ElectricDamageMultiple = 0;
+
+        AtackSpeed = 0;
+
+        PhysicalResist = 0;
+        FireResist = 0;
+        IceResist = 0;
+        PoisonResist = 0;
+        DarkResist = 0;
+        ElectricResist = 0;
+
+        Speed = 0;
+
+}
+
+    public void SetMaxHealth(float value) => MaxHealth = value;
+
+    public void SetPhysicalDamage(float value) => PhysicalDamage = value;
+    public void SetPhysicalDamageMultiple(float value) => PhysicalDamageMultiple = value;
+    public void SetFireDamage(float value) => FireDamage = value;
+    public void SetFireDamageMultiple(float value) => FireDamageMultiple = value;
+    public void SetIceDamage(float value) => IceDamage = value;
+    public void SetIceDamageMultiple(float value) => IceDamageMultiple = value;
+    public void SetPoisonDamage(float value) => PoisonDamage = value;
+    public void SetPoisonDamageMultiple(float value) => PoisonDamageMultiple = value;
+    public void SetDarkDamage(float value) => DarkDamage = value;
+    public void SetDarkDamageMultiple(float value) => DarkDamageMultiple = value;
+    public void SetElectricDamage(float value) => ElectricDamage = value;
+    public void SetElectricDamageMultiple(float value) => ElectricDamageMultiple = value;
+    public void SetAtackSpeed(float value) => AtackSpeed = value;
+    public void SetPhysicalResist(float value) => PhysicalResist = value;
+    public void SetFireResist(float value) => FireResist = value;
+    public void SetIceResist(float value) => IceResist = value;
+    public void SetPoisonResist(float value) => PoisonResist = value;
+    public void SetDarkResist(float value) => DarkResist = value;
+    public void SetElectricResist(float value) => ElectricResist = value;
+    public void SetSpeed(float value) => Speed = value;
+
     //health
     protected float MaxHealth;
 
@@ -68,7 +128,5 @@ public class MainSkillScript : MonoBehaviour
     protected float Speed;
     public float GetSpeed() => Speed;
 
-
-    protected float DegToRad(float angle) => (float)(angle / (180 / Math.PI));
 
 }

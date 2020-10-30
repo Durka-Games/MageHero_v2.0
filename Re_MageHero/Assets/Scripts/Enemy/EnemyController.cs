@@ -32,8 +32,6 @@ public class EnemyController : Controller
 
         base.Start();
 
-        AddSkill(new Enemy());
-
         StartCoroutine("Fire");
 
     }

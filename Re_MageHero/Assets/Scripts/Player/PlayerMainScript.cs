@@ -21,8 +21,6 @@ public class PlayerMainScript : Controller
 
         EnemyTag = "Enemy";
 
-        AddSkill(new Player());
-
         base.Start();
 
         ch_controller = GetComponent<CharacterController>();
