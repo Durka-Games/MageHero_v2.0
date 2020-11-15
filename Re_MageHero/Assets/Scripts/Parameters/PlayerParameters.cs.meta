@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 3aad5e28337411344911a3b202466f05
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - basePlayer: {fileID: 78188076738814511, guid: 066ee6b504a7f4443b163824f62a64d3,
+      type: 3}
+  - firePlayer: {fileID: 78188076738814511, guid: 066ee6b504a7f4443b163824f62a64d3,
+      type: 3}
+  - frostPlayer: {fileID: 78188076738814511, guid: 066ee6b504a7f4443b163824f62a64d3,
+      type: 3}
+  - airPlayer: {fileID: 78188076738814511, guid: 066ee6b504a7f4443b163824f62a64d3,
+      type: 3}
+  - necromanticPlayer: {fileID: 78188076738814511, guid: 066ee6b504a7f4443b163824f62a64d3,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
